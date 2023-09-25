@@ -74,7 +74,7 @@ runs:
         key: build-${{ inputs.cache-key }}-${{ runner.os }}-${{ inputs.otp-version }}-${{ inputs.elixir-version }}-${{ env.MIX_ENV }}-${{ hashFiles('**/mix.lock') }}
         restore-keys: |
           build-${{ inputs.cache-key }}-${{ runner.os }}-${{ inputs.otp-version }}-${{ inputs.elixir-version }}-${{ env.MIX_ENV }}-
-      if: inputs.build-deps == 'true' or inputs.build-app == 'true'
+      if: inputs.build-deps == 'true' || inputs.build-app == 'true'
 
     - name: Get Hex cache
       uses: actions/cache@v3
