@@ -57,7 +57,6 @@ runs:
       with:
         elixir-version: ${{ inputs.elixir-version }}
         otp-version: ${{ inputs.otp-version }}
-        ImageOS: "ubuntu22"
 
     - name: Get deps cache
       uses: actions/cache@v3
