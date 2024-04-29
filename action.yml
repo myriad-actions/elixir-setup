@@ -59,7 +59,7 @@ runs:
         otp-version: ${{ inputs.otp-version }}
 
     - name: Get deps cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: deps/
         key: deps-${{ inputs.cache-key }}-${{ runner.os }}-${{ hashFiles('**/mix.lock') }}
@@ -67,7 +67,7 @@ runs:
           deps-${{ inputs.cache-key }}-${{ runner.os }}-
 
     - name: Get build cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       id: build-cache
       with:
         path: _build/${{env.MIX_ENV}}/
@@ -77,7 +77,7 @@ runs:
       if: inputs.build-deps == 'true' || inputs.build-app == 'true'
 
     - name: Get Hex cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       id: hex-cache
       with:
         path: ~/.hex
@@ -92,7 +92,7 @@ runs:
     # I force a full recompile only on builds that we retry.
     - name: Clean to rule out incremental build as a source of flakiness
       if: github.run_attempt != '1'
-      run: | 
+      run: |
         mix deps.clean --all
         mix clean
       shell: sh
