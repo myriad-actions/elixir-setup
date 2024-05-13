@@ -52,7 +52,7 @@ runs:
   using: "composite"
   steps:
     - name: Setup elixir
-      uses: erlef/setup-beam@v1
+      uses: erlef/setup-beam@v1.17.5
       id: beam
       with:
         elixir-version: ${{ inputs.elixir-version }}
