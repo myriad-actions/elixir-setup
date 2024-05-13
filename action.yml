@@ -108,7 +108,7 @@ runs:
       if: inputs.install-hex == 'true'
 
     - name: Setup SSH key
-      uses: webfactory/ssh-agent@v0.7.0
+      uses: webfactory/ssh-agent@v0.9.0
       with:
         ssh-private-key: ${{ inputs.ssh-key }}
 
